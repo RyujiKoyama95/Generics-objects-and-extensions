@@ -21,18 +21,25 @@ class NumericQuestion(
     val difficulty: String
 )
 
+// enum
+enum class Difficulty {
+    EASY,
+    NORMAL,
+    HARD
+}
+
 // genericsで表現
 class Question<T>(
     val questionText: String,
     val answer: T,
-    val difficulty: String
+    val difficulty: Difficulty
 )
 
 // genericsで表現したクラスをインスタンス化
 fun main() {
-    val que1 = Question("aaa", "bbb", "easy")
-    val que2 = Question("aaa", 1, "easy")
-    val que3 = Question("aaa", true, "easy")
+    val que1 = Question("aaa", "bbb", Difficulty.EASY)
+    val que2 = Question("aaa", 1, Difficulty.NORMAL)
+    val que3 = Question("aaa", true, Difficulty.HARD)
 }
 
 /**
