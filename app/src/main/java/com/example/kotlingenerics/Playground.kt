@@ -114,6 +114,20 @@ fun main4() {
 /**
  * 4.Use a singleton object
  */
+class Quiz {
+    companion object StudentProgress {
+        var total = 10
+        var answered = 3
+    }
+
+    val que1 = Question3("aaa", "bbb", Difficulty.EASY)
+}
+
+// companion object内で宣言されたプロパティはクラス外から、クラス名.プロパティ名でアクセス可能
+fun main5() {
+    println("${Quiz.total}")
+    println("${Quiz.answered}")
+}
 
 /**
  * 5.Extend classes with new properties and methods
