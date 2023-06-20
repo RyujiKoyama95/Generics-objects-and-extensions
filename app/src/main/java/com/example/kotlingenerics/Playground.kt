@@ -21,6 +21,24 @@ class NumericQuestion(
     val difficulty: String
 )
 
+// 親クラスで共通部を定義してanswerのみサブクラスで定義
+// →answerのデータ型が違う問題を追加するたびにサブクラスを定義する手間がある
+// →そもそもanswerプロパティを持たない親クラスQuestionがあるのも不自然
+open class ParentQuestion(
+    val questionText: String,
+    val difficulty: String
+)
+class SubQuestion1(
+    val answer: Boolean,
+    questionText: String,
+    difficulty: String
+): ParentQuestion(questionText, difficulty)
+class SubQuestion2(
+    val answer: Int,
+    questionText: String,
+    difficulty: String
+): ParentQuestion(questionText, difficulty)
+
 // enum
 enum class Difficulty {
     EASY,
@@ -29,6 +47,7 @@ enum class Difficulty {
 }
 
 // genericsで表現
+// →違うのはanswerのデータ型のみなので、この方法が一番シンプルでいい
 class Question<T>(
     val questionText: String,
     val answer: T,
