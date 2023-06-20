@@ -39,31 +39,42 @@ class SubQuestion2(
     difficulty: String
 ): ParentQuestion(questionText, difficulty)
 
+// genericsで表現
+// →違うのはanswerのデータ型のみなので、この方法が一番シンプルでいい
+class Question<T>(
+    val questionText: String,
+    val answer: T,
+    val difficulty: String
+)
+
+// genericsで表現したクラスをインスタンス化
+fun main() {
+    val que1 = Question("aaa", "bbb", "easy")
+    val que2 = Question("aaa", 1, "normal")
+    val que3 = Question("aaa", true, "hard")
+}
+
+/**
+ * 2.Use an enum class
+ */
 // enum
 enum class Difficulty {
     EASY,
     NORMAL,
     HARD
 }
-
-// genericsで表現
-// →違うのはanswerのデータ型のみなので、この方法が一番シンプルでいい
-class Question<T>(
+class Question2<T>(
     val questionText: String,
     val answer: T,
     val difficulty: Difficulty
 )
 
 // genericsで表現したクラスをインスタンス化
-fun main() {
-    val que1 = Question("aaa", "bbb", Difficulty.EASY)
-    val que2 = Question("aaa", 1, Difficulty.NORMAL)
-    val que3 = Question("aaa", true, Difficulty.HARD)
+fun main2() {
+    val que1 = Question2("aaa", "bbb", Difficulty.EASY)
+    val que2 = Question2("aaa", 1, Difficulty.NORMAL)
+    val que3 = Question2("aaa", true, Difficulty.HARD)
 }
-
-/**
- * 2.Use an enum class
- */
 
 /**
  * 3.Use a data class
