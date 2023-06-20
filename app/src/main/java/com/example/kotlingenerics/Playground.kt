@@ -87,10 +87,28 @@ data class Question3<T>(
     val difficulty: Difficulty
 )
 
+/*
+data class では以下のメソッドが実装されている
+equals()
+hashCode(): このメソッドは、特定のコレクション型を操作する際に使用されます。
+toString()
+componentN(): component1()、component2()（以下同様）
+copy()
+ */
+
+// toString()
 fun main3() {
     val que1 = Question3("aaa", "bbb", Difficulty.EASY)
     println("$que1") // Question3(questionText=aaa, answer=bbb, difficulty=EASY)
-    // data classではなく普通のclassの場合、インスタンスをtoString()しても識別子が出力されるだけ
+    // data classではなく普通のclassの場合、インスタンスをtoString()してもインスタンスIDが出力されるだけ
+}
+// equals()
+fun main4() {
+    val que1 = Question3("aaa", "bbb", Difficulty.EASY)
+    val que2 = Question3("aaa", "bbb", Difficulty.EASY)
+    println("${que1.equals(que2)}")
+    // data class　→　プロパティの値が同じかどうかの判定(構造同一)
+    // class　　　　→　インスタンスが同じかどうかの判定(参照同一)
 }
 
 /**
