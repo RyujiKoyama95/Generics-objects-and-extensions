@@ -114,6 +114,7 @@ fun main4() {
 /**
  * 4.Use a singleton object
  */
+// singleton objectはobject宣言かcompanion object宣言で作成できる
 class Quiz {
     companion object StudentProgress {
         var total = 10
