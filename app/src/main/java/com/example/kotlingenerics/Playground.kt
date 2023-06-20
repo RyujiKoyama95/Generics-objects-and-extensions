@@ -137,6 +137,16 @@ fun main5() {
 /**
  * 6.Rewrite extension functions using interfaces
  */
+interface ProgressPrintable {
+    val progressText: String
+}
+
+class Quiz2 : ProgressPrintable {
+    override val progressText: String
+        get() {
+            TODO()
+        }
+}
 
 /**
  * 7.Use scope functions to access class properties and methods
