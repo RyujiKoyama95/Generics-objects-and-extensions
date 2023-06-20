@@ -79,6 +79,19 @@ fun main2() {
 /**
  * 3.Use a data class
  */
+// メソッドを持たないプロパティのみのクラスであればdata classを使用
+// data classでしか利用できないメソッドがいくつかある　→　例えばtoString()がデフォルトで実装されている
+data class Question3<T>(
+    val questionText: String,
+    val answer: T,
+    val difficulty: Difficulty
+)
+
+fun main3() {
+    val que1 = Question3("aaa", "bbb", Difficulty.EASY)
+    println("$que1") // Question3(questionText=aaa, answer=bbb, difficulty=EASY)
+    // data classではなく普通のclassの場合、インスタンスをtoString()しても識別子が出力されるだけ
+}
 
 /**
  * 4.Use a singleton object
