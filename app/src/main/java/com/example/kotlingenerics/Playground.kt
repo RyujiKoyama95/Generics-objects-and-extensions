@@ -139,13 +139,21 @@ fun main5() {
  */
 interface ProgressPrintable {
     val progressText: String
+    fun printProgressBar()
 }
 
 class Quiz2 : ProgressPrintable {
+    companion object StudentProgress {
+        var total = 10
+        var answered = 3
+    }
+
     override val progressText: String
-        get() {
-            TODO()
-        }
+        get() = "$answered of $total answered"
+
+    override fun printProgressBar() {
+        TODO("Not yet implemented")
+    }
 }
 
 /**
