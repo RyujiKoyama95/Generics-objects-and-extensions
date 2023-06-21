@@ -152,8 +152,15 @@ class Quiz2 : ProgressPrintable {
         get() = "$answered of $total answered"
 
     override fun printProgressBar() {
-        TODO("Not yet implemented")
+        repeat(answered) { print("▓") }
+        repeat(total - answered) { print("▒") }
+        println()
+        println("$progressText")
     }
+}
+
+fun main6() {
+    Quiz2().printProgressBar()
 }
 
 /**
