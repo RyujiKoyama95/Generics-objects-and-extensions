@@ -166,3 +166,32 @@ fun main6() {
 /**
  * 7.Use scope functions to access class properties and methods
  */
+data class Question4<T>(
+    val questionText: String,
+    val answer: T,
+    val difficulty: Difficulty
+)
+
+fun main7() {
+    val que1 = Question4("aaa", "111", Difficulty.EASY)
+    val que2 = Question4("bbb", "222", Difficulty.NORMAL)
+
+    // scope関数を使わないパターン
+    println("${que1.questionText},${que1.answer},${que1.difficulty}")
+    println("${que2.questionText},${que2.answer},${que2.difficulty}")
+
+    // let
+    que1.let {
+        println(
+            "${it.questionText},${it.answer},${it.difficulty}"
+        )
+    }
+
+    // apply
+    // 参照する変数も省略できる
+    // applyはレシーバのインスタンスを返すので変数に入れることも可能
+    // val que = que1.apply {
+    que1.apply {
+        println("$questionText,$answer,$difficulty")
+    }
+}
