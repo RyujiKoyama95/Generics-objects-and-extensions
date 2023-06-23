@@ -1,4 +1,4 @@
 # Generics-objects-and-extensions
 
-- For codelab practice
+- For Codelab practice
 - Codelab by Google
